@@ -42,11 +42,14 @@ public class CustomerPanel extends JPanel {
 	private JTextField id;
 	private JTextField addr;
 	private JTextField age;
+	JLabel lblNewLabel_5 = new JLabel();
 	/**
 	 * Create the panel.
 	 */
 	
 	String nigga;
+	
+
 	
 	public CustomerPanel() {
 		
@@ -155,7 +158,7 @@ public class CustomerPanel extends JPanel {
 		panel_3.add(age);
 		
 		
-		
+		number();
 		
 		
 		
@@ -168,7 +171,7 @@ public class CustomerPanel extends JPanel {
 				//Name text
 				try {
 					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
-					if(Name.getText().isEmpty()||Name.getText().isEmpty())
+					if(Name.getText().isEmpty()||Phno.getText().isEmpty()||id.getText().isEmpty()||addr.getText().isEmpty()||age.getText().isEmpty())
 					{
 						JOptionPane.showMessageDialog(null,"Please enter all the required details","Error",JOptionPane.ERROR_MESSAGE);
 					}
@@ -183,6 +186,7 @@ public class CustomerPanel extends JPanel {
 						pst.setString(6,age.getText());
 						pst.execute();
 						JOptionPane.showMessageDialog(null,"New Customer added!","Success",JOptionPane.INFORMATION_MESSAGE);
+						number();
 					}
 					dbc.close();
 				} catch (SQLException e1) {
@@ -199,39 +203,13 @@ public class CustomerPanel extends JPanel {
 		lblNewLabel_4.setBounds(31, 10, 85, 13);
 		panel_3.add(lblNewLabel_4);
 		
-		JLabel lblNewLabel_5 = new JLabel();
+		
 		lblNewLabel_5.setBounds(151, 10, 45, 13);
 		panel_3.add(lblNewLabel_5);
 		//DefaultTableModel dtm=(DefaultTableModel)tm;
 		
 		
-		try {
-			Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
-			String SQL="SELECT * from customers";
-			PreparedStatement ps=dbc.prepareStatement(SQL);
-			ResultSet rs=ps.executeQuery();
-			
-			if(!rs.next())
-			{
-				lblNewLabel_5.setText("1");
-				nigga="1";
-			}
-			else
-			{
-				while(!rs.next())
-				{
-					int i=Integer.parseInt(rs.getString("no"))+1;
-					
-					lblNewLabel_5.setText(Integer.toString(i));
-					nigga=Integer.toString(i);
-					
-				}
-			}
-		}
-		catch(Exception e)
-		{
-			
-		}
+
 		
 		
 		
@@ -274,4 +252,42 @@ public class CustomerPanel extends JPanel {
 			}
 		});
 	}
+	
+	public void number()
+	{
+		try {
+			Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
+			String SQL="SELECT * from customers";
+			PreparedStatement ps=dbc.prepareStatement(SQL);
+			ResultSet rs=ps.executeQuery();
+			
+		//	if(!rs.next())
+			//{
+			//	lblNewLabel_5.setText("1");
+			//	nigga="1";
+			//}
+			//else
+			//{
+				int i=1;
+				while(rs.next())
+				{
+					//System.out.print("sadvacwe");
+					//i=(Integer.parseInt(rs.getString("no")));
+					i++;
+					//System.out.println(rs.getString("no"));					
+					//lblNewLabel_5.setText(Integer.toString(i));
+					//nigga=Integer.toString(i);
+					
+				}
+				lblNewLabel_5.setText(Integer.toString(i));
+				nigga=Integer.toString(i);
+			//}
+			dbc.close();
+		}
+		catch(Exception e)
+		{
+			
+		}
+	}
+	
 }

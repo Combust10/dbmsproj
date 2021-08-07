@@ -213,7 +213,7 @@ public class PackagePanel extends JPanel {
 						pst.setString(3,textField_2.getText());
 						pst.setString(4,String.valueOf(comboBox.getSelectedItem()));
 						pst.execute();
-						JOptionPane.showMessageDialog(null,"New Product added!","Success",JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null,"New Package registered!","Success",JOptionPane.INFORMATION_MESSAGE);
 						}
 						con.close();
 						} catch (SQLException e1) {

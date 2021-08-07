@@ -131,13 +131,14 @@ public class PackagePanel_1 extends JPanel {
 								.prepareStatement("SELECT * FROM package where no=" + textField.getText());
 							ResultSet r = prep1.executeQuery();
 							if (r.next()) {
+								textField_1.setText(rs.getString("name"));
 								textField_2.setText(r.getString("date"));
 								textField_3.setText(r.getString("id"));
 								textField_4.setText(r.getString("packageno"));
 							} else {
 								JOptionPane.showMessageDialog(null, "Customer has not bought a package", "Error",
 									JOptionPane.ERROR_MESSAGE);
-							} 
+							}
 					}
 					else
 					{

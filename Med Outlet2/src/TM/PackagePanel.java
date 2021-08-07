@@ -53,7 +53,7 @@ public class PackagePanel extends JPanel {
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblNewLabel = new JLabel("PACKAGES");
-		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/6639703_preview.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
+		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/6639703_preview.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
 		panel.add(lblNewLabel,BorderLayout.WEST);
@@ -69,7 +69,7 @@ public class PackagePanel extends JPanel {
 		lblNewLabel_1.setBounds(0, 0, 102, 40);
 		lblNewLabel_1.setOpaque(true);
 		lblNewLabel_1.setBackground(Color.PINK);
-		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/unnamed.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/unnamed.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		panel_1.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Display");
@@ -78,7 +78,7 @@ public class PackagePanel extends JPanel {
 		lblNewLabel_2.setBackground(Color.PINK);
 		lblNewLabel_2.setOpaque(true);
 		//lblNewLabel_2.setIcon(new ImageIcon(InventoryPanel.class.getResource("/MedOut/Edit_icon_(the_Noun_Project_30184).png")));
-		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/Edit_icon_(the_Noun_Project_30184).png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/Edit_icon_(the_Noun_Project_30184).png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		panel_1.add(lblNewLabel_2);
 		
 		JPanel panel_2 = new JPanel();

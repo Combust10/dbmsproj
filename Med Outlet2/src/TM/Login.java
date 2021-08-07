@@ -63,7 +63,7 @@ public class Login extends JFrame {
 	public Login(int a) {}
 	public Login() throws ClassNotFoundException, SQLException {
 		setTitle("Login");
-	//SQLite.getConnection();
+		//SQLite.getConnection();
 		String name=null;
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/TM/check.png")));
 		setForeground(Color.WHITE);

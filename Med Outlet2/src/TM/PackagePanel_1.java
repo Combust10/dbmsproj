@@ -63,6 +63,7 @@ public class PackagePanel_1 extends JPanel {
 		panel1.add(textField);
 		
 		JButton btnNewButton = new JButton("Go");
+
 		btnNewButton.setBounds(253, 22, 85, 21);
 		panel1.add(btnNewButton);
 		
@@ -70,10 +71,6 @@ public class PackagePanel_1 extends JPanel {
 		panel.setLayout(null);
 		panel.setBackground(Color.WHITE);
 		add(panel, BorderLayout.CENTER);
-		
-		JLabel lblNewLabel_4 = new JLabel("Customer No:");
-		lblNewLabel_4.setBounds(75, 36, 85, 13);
-		panel.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_3 = new JLabel("Name:");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -117,6 +114,47 @@ public class PackagePanel_1 extends JPanel {
 		String columnNames[]= {"Products","Quantity","Price"};
 		JTable table = new JTable();
 		JScrollPane jsp=new JScrollPane();
+		
+		
+		
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			
+				try {
+					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
+					PreparedStatement prep = dbc
+							.prepareStatement("SELECT * FROM customers where no=" + textField.getText());
+					ResultSet rs = prep.executeQuery();
+					if (rs.next()) {
+							PreparedStatement prep1 = dbc
+								.prepareStatement("SELECT * FROM package where no=" + textField.getText());
+							ResultSet r = prep1.executeQuery();
+							if (r.next()) {
+								textField_2.setText(r.getString("date"));
+								textField_3.setText(r.getString("id"));
+								textField_4.setText(r.getString("packageno"));
+							} else {
+								JOptionPane.showMessageDialog(null, "Customer has not bought a package", "Error",
+									JOptionPane.ERROR_MESSAGE);
+							} 
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "Customer does not exist", "Error",
+								JOptionPane.ERROR_MESSAGE);
+					}
+					dbc.close();
+					}catch(SQLException ex)
+				{
+						JOptionPane.showMessageDialog(null,"SQL Error connecting to database","Error",JOptionPane.ERROR_MESSAGE);		
+				}
+				
+				
+				
+				
+			}
+		});
 	
 	}
 }

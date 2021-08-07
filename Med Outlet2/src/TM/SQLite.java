@@ -21,7 +21,7 @@ public class SQLite {
 				con=DriverManager.getConnection("jdbc:sqlite:src/TM/Database.db");
 				Statement state=con.createStatement();
 				state.execute("CREATE TABLE IF NOT EXISTS login(id integer,"+"username varchar(60),"+"password varchar(60),"+"sq varchar(100),"+"ans varchar(60));");
-				state.execute("CREATE TABLE IF NOT EXISTS package(no integer,"+"date varchar(60),"+"id integer,"+"packageno integer);");
+				state.execute("CREATE TABLE IF NOT EXISTS package(no integer,"+"date varchar(60),"+"id integer,"+"packageno varchar(60));");
 				state.execute("CREATE TABLE IF NOT EXISTS customers(no integer,"+"name varchar(60),"+"phone integer,"+"id integer,"+"age integer,"+"address varchar(60));");
 				state.execute("CREATE TABLE IF NOT EXISTS company(id integer,"+"compname varchar(60),"+"compdets varchar(200));");
 				state.execute("CREATE TABLE IF NOT EXISTS settings(id integer,"+"name varchar(60),"+"line1 varchar(200),"+"line2 varchar(200),"+"fs integer);");

@@ -33,6 +33,7 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
+import javax.swing.JComboBox;
 
 public class PackagePanel extends JPanel {
 	private JTextField textField;
@@ -127,6 +128,12 @@ public class PackagePanel extends JPanel {
 		JButton btnNewButton = new JButton("Add");
 		btnNewButton.setBounds(112, 176, 85, 21);
 		panel_2.add(btnNewButton);
+		
+		String ch[]={"1.Singapore Package","2.Dubai Package","3.Thailand Package","4.US Package"};
+		JComboBox<String> comboBox = new JComboBox<String>(ch);
+		comboBox.setBounds(112, 103, 171, 21);
+		panel_2.add(comboBox);
+		
 		JScrollPane jsp=new JScrollPane();
 		
 		lblNewLabel_1.addMouseListener(new MouseAdapter() {
@@ -163,6 +170,55 @@ public class PackagePanel extends JPanel {
 			public void mouseExited(MouseEvent e) {
 				lblNewLabel_2.setBackground(Color.PINK);
 			}
+		});
+		
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String name=textField.getText();
+				String ph=textField_1.getText();
+				String idno=textField_2.getText();
+				
+				
+				if(textField.getText().isEmpty()||textField_1.getText().isEmpty()||textField_2.getText().isEmpty())
+				{
+					JOptionPane.showMessageDialog(null,"Please enter all the required details","Error",JOptionPane.ERROR_MESSAGE);
+				}
+				else{
+				
+					try {
+						Connection con=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
+						PreparedStatement prep=con.prepareStatement("SELECT * FROM customers where no="+textField.getText());
+						ResultSet r=prep.executeQuery();
+						if(!r.next())
+						{
+							JOptionPane.showMessageDialog(null,"Customer does not exist","Error",JOptionPane.ERROR_MESSAGE);
+						}
+						else
+						{
+						String query="INSERT INTO Package values(?,?,?,?);";
+						PreparedStatement pst=con.prepareStatement(query);
+						pst.setString(1,textField.getText());	
+						pst.setString(2,textField_1.getText());	
+						pst.setString(3,textField_2.getText());
+						pst.setString(4,String.valueOf(comboBox.getSelectedItem()));
+						pst.execute();
+						JOptionPane.showMessageDialog(null,"New Product added!","Success",JOptionPane.INFORMATION_MESSAGE);
+						}
+						con.close();
+						} catch (SQLException e1) {
+						JOptionPane.showMessageDialog(null,"SQL Error connecting to database","Error",JOptionPane.ERROR_MESSAGE);
+						e1.printStackTrace();
+					}
+			}	
+				}
+
+				
+				
+				
+				
+				
+			
 		});
 	}
 }

@@ -33,6 +33,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class PackagePanel_1 extends JPanel {
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
 
 	/**
 	 * Create the panel.
@@ -41,23 +46,76 @@ public class PackagePanel_1 extends JPanel {
 		setBackground(Color.WHITE);
 		setLayout(new BorderLayout(0, 0));
 		
+		JPanel panel1 = new JPanel();
+		panel1.setLayout(null);
+		panel1.setPreferredSize(new Dimension(100, 60));
+		panel1.setBackground(Color.WHITE);
+		add(panel1, BorderLayout.NORTH);
+		
+		JLabel lblNewLabel = new JLabel("Customer No:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(10, 24, 110, 13);
+		panel1.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(134, 23, 96, 19);
+		panel1.add(textField);
+		
+		JButton btnNewButton = new JButton("Go");
+		btnNewButton.setBounds(253, 22, 85, 21);
+		panel1.add(btnNewButton);
+		
 		JPanel panel = new JPanel();
+		panel.setLayout(null);
 		panel.setBackground(Color.WHITE);
-		panel.setPreferredSize(new Dimension(100,60));
-		add(panel, BorderLayout.NORTH);
-		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0, 168, 78, 90, 0, 0, 0, -26, 0};
-		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		panel.setLayout(gbl_panel);
+		add(panel, BorderLayout.CENTER);
+		
+		JLabel lblNewLabel_4 = new JLabel("Customer No:");
+		lblNewLabel_4.setBounds(75, 36, 85, 13);
+		panel.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_3 = new JLabel("Name:");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3.setBounds(75, 52, 71, 20);
+		panel.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("Date:");
+		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3_1.setBounds(75, 82, 105, 20);
+		panel.add(lblNewLabel_3_1);
+		
+		JLabel lblNewLabel_3_2 = new JLabel("ID No:");
+		lblNewLabel_3_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3_2.setBounds(75, 113, 71, 20);
+		panel.add(lblNewLabel_3_2);
+		
+		JLabel lblNewLabel_3_3 = new JLabel("Package");
+		lblNewLabel_3_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3_3.setBounds(75, 143, 71, 20);
+		panel.add(lblNewLabel_3_3);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(197, 52, 171, 19);
+		panel.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(197, 79, 171, 19);
+		panel.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(197, 109, 171, 19);
+		panel.add(textField_3);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(197, 141, 171, 19);
+		panel.add(textField_4);
 		String columnNames[]= {"Products","Quantity","Price"};
 		JTable table = new JTable();
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setLayout(new BorderLayout(0,0));
-		panel_1.setBackground(Color.WHITE);
-		add(panel_1, BorderLayout.CENTER);
 		JScrollPane jsp=new JScrollPane();
 	
 	}

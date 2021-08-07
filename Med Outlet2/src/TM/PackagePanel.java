@@ -32,8 +32,12 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
 
 public class PackagePanel extends JPanel {
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * Create the panel.
@@ -49,7 +53,7 @@ public class PackagePanel extends JPanel {
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblNewLabel = new JLabel("PACKAGES");
-		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/6639703_preview.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
+		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/6639703_preview.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
 		panel.add(lblNewLabel,BorderLayout.WEST);
@@ -65,7 +69,7 @@ public class PackagePanel extends JPanel {
 		lblNewLabel_1.setBounds(0, 0, 102, 40);
 		lblNewLabel_1.setOpaque(true);
 		lblNewLabel_1.setBackground(Color.PINK);
-		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/unnamed.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/unnamed.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		panel_1.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Display");
@@ -73,8 +77,8 @@ public class PackagePanel extends JPanel {
 		lblNewLabel_2.setBounds(102, 0, 120, 40);
 		lblNewLabel_2.setBackground(Color.PINK);
 		lblNewLabel_2.setOpaque(true);
-		//lblNewLabel_2.setIcon(new ImageIcon(PackagePanel.class.getResource("/TM/Edit_icon_(the_Noun_Project_30184).png")));
-		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/Edit_icon_(the_Noun_Project_30184).png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		//lblNewLabel_2.setIcon(new ImageIcon(InventoryPanel.class.getResource("/MedOut/Edit_icon_(the_Noun_Project_30184).png")));
+		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/Edit_icon_(the_Noun_Project_30184).png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		panel_1.add(lblNewLabel_2);
 		
 		JPanel panel_2 = new JPanel();
@@ -84,6 +88,45 @@ public class PackagePanel extends JPanel {
 		panel_3.setBackground(Color.PINK);
 		add(panel_2,BorderLayout.CENTER);
 		panel_2.setLayout(null);
+		
+		JLabel lblNewLabel_3 = new JLabel("Customer no:");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3.setBounds(10, 10, 105, 20);
+		panel_2.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("Date:");
+		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3_1.setBounds(10, 40, 105, 20);
+		panel_2.add(lblNewLabel_3_1);
+		
+		JLabel lblNewLabel_3_2 = new JLabel("ID No:");
+		lblNewLabel_3_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3_2.setBounds(10, 71, 71, 20);
+		panel_2.add(lblNewLabel_3_2);
+		
+		JLabel lblNewLabel_3_3 = new JLabel("Package:");
+		lblNewLabel_3_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3_3.setBounds(10, 101, 71, 20);
+		panel_2.add(lblNewLabel_3_3);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(112, 10, 171, 19);
+		panel_2.add(textField);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(112, 37, 171, 19);
+		panel_2.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(112, 67, 171, 19);
+		panel_2.add(textField_2);
+		
+		JButton btnNewButton = new JButton("Add");
+		btnNewButton.setBounds(112, 176, 85, 21);
+		panel_2.add(btnNewButton);
 		JScrollPane jsp=new JScrollPane();
 		
 		lblNewLabel_1.addMouseListener(new MouseAdapter() {

@@ -33,10 +33,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.BoxLayout;
+import javax.swing.JTextField;
 
 public class SalesPanel extends JPanel {
-	private JTable table;
 	int total=0;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
 	/**
 	 * Create the panel.
 	 */
@@ -51,8 +56,8 @@ public class SalesPanel extends JPanel {
 		add(panel, BorderLayout.NORTH);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("SALES");
-		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/cvs-health-payor-solutions-measuring-success-main-image_0.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
+		JLabel lblNewLabel = new JLabel("CUSTOMERS");
+		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/signup.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
 		panel.add(lblNewLabel,BorderLayout.WEST);
@@ -93,135 +98,71 @@ public class SalesPanel extends JPanel {
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.WHITE);
-		panel_3.setPreferredSize(new Dimension(100,60));
-		panel_2.add(panel_3, BorderLayout.NORTH);
-		GridBagLayout gbl_panel_3 = new GridBagLayout();
-		gbl_panel_3.columnWidths = new int[]{83, 74, 0, 50, 0, 0, 0, 0};
-		gbl_panel_3.rowHeights = new int[]{14, 0, 0};
-		gbl_panel_3.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_3.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		panel_3.setLayout(gbl_panel_3);
+		panel_2.add(panel_3, BorderLayout.CENTER);
+		panel_3.setLayout(null);
 		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBackground(Color.WHITE);
-		panel_4.setPreferredSize(new Dimension(100,60));
-		panel_2.add(panel_4, BorderLayout.SOUTH);
+		JLabel lblNewLabel_3 = new JLabel("Name:");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3.setBounds(31, 26, 71, 20);
+		panel_3.add(lblNewLabel_3);
 		
-		JButton btnNewButton_3 = new JButton("Log Sale");
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					Date date = new Date();
-					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
-					int count= table.getModel().getRowCount(); 
-					for(int i=0;i<count;i++)
-					{
-					String sql="INSERT INTO sales values(?,?,?,?,?,?);";
-					PreparedStatement pst=dbc.prepareStatement(sql);
-					pst.setString(1,"");
-					pst.setString(2,MainMenu.getname());
-					pst.setString(3,(String) table.getModel().getValueAt(i, 0));
-					pst.setString(4,(String) table.getModel().getValueAt(i, 2));
-					pst.setString(5,(String) table.getModel().getValueAt(i, 1));
-					pst.setString(6,date.toString());
-					pst.execute();
-					}
-					JOptionPane.showMessageDialog(null,"Sale logged!","Success",JOptionPane.INFORMATION_MESSAGE);
-					dbc.close();
-					
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
-		panel_4.setLayout(new BoxLayout(panel_4, BoxLayout.X_AXIS));
-		//panel_4.add(btnNewButton_3,BorderLayout.CENTER);
+		JLabel lblNewLabel_3_1 = new JLabel("Phone No:");
+		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3_1.setBounds(31, 56, 105, 20);
+		panel_3.add(lblNewLabel_3_1);
 		
-		JButton btnNewButton_4 = new JButton("Generate Bill");
-
-		//panel_4.add(btnNewButton_4,BorderLayout.CENTER);
+		JLabel lblNewLabel_3_2 = new JLabel("ID No:");
+		lblNewLabel_3_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3_2.setBounds(31, 87, 71, 20);
+		panel_3.add(lblNewLabel_3_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Product:");
-		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
-		gbc_lblNewLabel_3.anchor = GridBagConstraints.EAST;
-		gbc_lblNewLabel_3.insets = new Insets(0, 0, 0, 5);
-		gbc_lblNewLabel_3.gridx = 0;
-		gbc_lblNewLabel_3.gridy = 1;
-		panel_3.add(lblNewLabel_3, gbc_lblNewLabel_3);
+		JLabel lblNewLabel_3_3 = new JLabel("Address:");
+		lblNewLabel_3_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3_3.setBounds(31, 117, 71, 20);
+		panel_3.add(lblNewLabel_3_3);
 		
-		JComboBox<String> comboBox = new JComboBox<String>();
-	
-		GridBagConstraints gbc_comboBox = new GridBagConstraints();
-		gbc_comboBox.insets = new Insets(0, 0, 0, 5);
-		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox.gridx = 1;
-		gbc_comboBox.gridy = 1;
-		panel_3.add(comboBox, gbc_comboBox);
+		JLabel lblNewLabel_3_4 = new JLabel("Age:");
+		lblNewLabel_3_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3_4.setBounds(31, 148, 71, 20);
+		panel_3.add(lblNewLabel_3_4);
 		
-		JLabel lblNewLabel_4 = new JLabel("Quantity:");
-		lblNewLabel_4.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
-		gbc_lblNewLabel_4.anchor = GridBagConstraints.NORTHEAST;
-		gbc_lblNewLabel_4.insets = new Insets(0, 0, 0, 5);
-		gbc_lblNewLabel_4.gridx = 2;
-		gbc_lblNewLabel_4.gridy = 1;
-		panel_3.add(lblNewLabel_4, gbc_lblNewLabel_4);
+		textField = new JTextField();
+		textField.setBounds(153, 26, 171, 19);
+		panel_3.add(textField);
+		textField.setColumns(10);
 		
-		JComboBox<String> comboBox_1 = new JComboBox<String>();
-		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
-		gbc_comboBox_1.insets = new Insets(0, 0, 0, 5);
-		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_1.gridx = 3;
-		gbc_comboBox_1.gridy = 1;
-		panel_3.add(comboBox_1, gbc_comboBox_1);
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(153, 53, 171, 19);
+		panel_3.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(153, 83, 171, 19);
+		panel_3.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(153, 115, 171, 19);
+		panel_3.add(textField_3);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(153, 144, 171, 19);
+		panel_3.add(textField_4);
 		
 		JButton btnNewButton = new JButton("Add");
-
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton.gridx = 4;
-		gbc_btnNewButton.gridy = 1;
-		panel_3.add(btnNewButton, gbc_btnNewButton);
+		btnNewButton.setBounds(142, 189, 85, 21);
+		panel_3.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Reset");
-
-		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-		gbc_btnNewButton_1.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton_1.gridx = 5;
-		gbc_btnNewButton_1.gridy = 1;
-		panel_3.add(btnNewButton_1, gbc_btnNewButton_1);
+		JLabel lblNewLabel_4 = new JLabel("Customer No:");
+		lblNewLabel_4.setBounds(31, 10, 85, 13);
+		panel_3.add(lblNewLabel_4);
 		
-		JButton btnNewButton_2 = new JButton("Refresh");
-
-		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
-		gbc_btnNewButton_2.gridx = 6;
-		gbc_btnNewButton_2.gridy = 1;
-		panel_3.add(btnNewButton_2, gbc_btnNewButton_2);
-		JPanel but=new JPanel();
-		but.setBackground(Color.WHITE);
-		but.add(btnNewButton_3);
-		but.add(btnNewButton_4);
-		panel_4.add(but,BorderLayout.CENTER);
-		
-		JLabel lblNewLabel_5 = new JLabel("Total:");
-		but.add(lblNewLabel_5);
-		
-		table = new JTable();
-		table.setBackground(Color.WHITE);
-		JScrollPane js=new JScrollPane();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Products", "Quantity", "Price"
-			}
-		));
-		js.setViewportView(table);
-		TableModel tm=table.getModel();
-		DefaultTableModel dtm=(DefaultTableModel)tm;
-		panel_2.add(js, BorderLayout.CENTER);
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setBounds(151, 10, 45, 13);
+		panel_3.add(lblNewLabel_5);
+		//DefaultTableModel dtm=(DefaultTableModel)tm;
 
 		JScrollPane jsp=new JScrollPane();
 		lblNewLabel_1.addMouseListener(new MouseAdapter() {
@@ -257,109 +198,6 @@ public class SalesPanel extends JPanel {
 			@Override
 			public void mouseExited(MouseEvent e) {
 				lblNewLabel_2.setBackground(Color.PINK);
-			}
-		});
-
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					comboBox.removeAllItems();
-					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
-					PreparedStatement prep=dbc.prepareStatement("SELECT * FROM stock");
-					ResultSet res=prep.executeQuery();
-					while(res.next())
-					{
-						comboBox.addItem(res.getString("Product"));
-					}
-					dbc.close();
-					}catch(SQLException ex)
-				{
-						JOptionPane.showMessageDialog(null,"SQL Error connecting to database","Error",JOptionPane.ERROR_MESSAGE);		
-				}
-			}
-		});
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
-					String sql="SELECT Price FROM stock WHERE Product=?";
-					PreparedStatement pst=dbc.prepareStatement(sql);
-					pst.setString(1,String.valueOf(comboBox.getSelectedItem()));
-					ResultSet rs=pst.executeQuery();					
-				
-					try {
-					String s[]={String.valueOf(comboBox.getSelectedItem()),String.valueOf(comboBox_1.getSelectedItem()),String.valueOf(rs.getInt("Price")*Integer.valueOf(String.valueOf(comboBox_1.getSelectedItem())))};
-					dtm.addRow(s);
-					PreparedStatement prep=dbc.prepareStatement("SELECT Quantity FROM stock where Product=?");
-					prep.setString(1,String.valueOf(comboBox.getSelectedItem()) );				
-					ResultSet res=prep.executeQuery();
-					int a=0;
-					if(res.next())
-					a=res.getInt("Quantity");
-					sql="UPDATE stock SET quantity=? WHERE Product=?";
-					pst=dbc.prepareStatement(sql);
-					pst.setInt(1,(a-Integer.valueOf(String.valueOf(comboBox_1.getSelectedItem()))));
-					pst.setString(2,String.valueOf(comboBox.getSelectedItem()));
-					pst.execute();
-					total=0;
-					for(int i = 0; i < table.getRowCount(); i++){
-				        int Amount = Integer.parseInt(table.getValueAt(i, 2)+"");
-				        total = Amount+total;			        
-				    }
-					lblNewLabel_5.setText("Total:"+total);
-					dbc.close();
-					}
-					catch(Exception e)
-					{JOptionPane.showMessageDialog(null,"Cannot add empty products","Error",JOptionPane.ERROR_MESSAGE);
-					dbc.close();}
-					dbc=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
-					comboBox.removeAllItems();
-					PreparedStatement prep=dbc.prepareStatement("SELECT * FROM stock");
-					ResultSet res=prep.executeQuery();
-					while(res.next())
-					{
-						comboBox.addItem(res.getString("Product"));
-					}
-					dbc.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				dtm.setRowCount(0);
-				lblNewLabel_5.setText("Total:");
-			}
-		});
-		comboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				comboBox_1.removeAllItems();
-				Connection dbc;
-				try {
-					dbc = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
-			
-				PreparedStatement prep=dbc.prepareStatement("SELECT Quantity FROM stock where Product=?");
-				prep.setString(1,String.valueOf(comboBox.getSelectedItem()) );				
-				ResultSet res=prep.executeQuery();
-				int a=0;
-				if(res.next())
-				a=res.getInt("Quantity");
-				for(int i=1;i<=a;i++)
-				{
-					comboBox_1.addItem(String.valueOf(i));
-				}
-				dbc.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Bill.main(table,total);
 			}
 		});
 	}

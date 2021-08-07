@@ -51,7 +51,7 @@ public class CompanyPanel extends JPanel {
 		add(panel, BorderLayout.NORTH);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("COMPANIES");
+		JLabel lblNewLabel = new JLabel("HOTELS");
 		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/building-icon-company-building-png-png-256_256.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
@@ -93,7 +93,7 @@ public class CompanyPanel extends JPanel {
 		gbl_panel_2.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_2.setLayout(gbl_panel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Company Name:");
+		JLabel lblNewLabel_3 = new JLabel("Hotel Name:");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
 		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
@@ -110,7 +110,7 @@ public class CompanyPanel extends JPanel {
 		panel_2.add(textField, gbc_textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_3_1 = new JLabel("Company Details:");
+		JLabel lblNewLabel_3_1 = new JLabel("Hotel Details:");
 		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GridBagConstraints gbc_lblNewLabel_3_1 = new GridBagConstraints();
 		gbc_lblNewLabel_3_1.insets = new Insets(0, 0, 5, 5);
@@ -127,7 +127,7 @@ public class CompanyPanel extends JPanel {
 		panel_2.add(scrollPane, gbc_scrollPane);
 		
 		JTextArea txtrRepresentativeNameTelephone = new JTextArea();
-		txtrRepresentativeNameTelephone.setText("REPRESENTATIVE NAME:\r\nTELEPHONE NUMBER:\r\nPRODUCTS:\r\nGENERAL COMMENT:\r\nADDITIONAL NOTES:\r\n");
+		txtrRepresentativeNameTelephone.setText("REPRESENTATIVE NAME:\r\nTELEPHONE NUMBER:\r\nROOM PRICES:\r\nGENERAL COMMENT:\r\nADDITIONAL NOTES:\r\n");
 		txtrRepresentativeNameTelephone.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -204,7 +204,7 @@ public class CompanyPanel extends JPanel {
 						pst.setString(2,textField.getText());
 						pst.setString(3,txtrRepresentativeNameTelephone.getText());
 						pst.execute();
-						JOptionPane.showMessageDialog(null,"New Company added!","Success",JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null,"New Hotel added!","Success",JOptionPane.INFORMATION_MESSAGE);
 					}
 					dbc.close();
 				} catch (SQLException e1) {

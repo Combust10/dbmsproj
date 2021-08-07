@@ -55,7 +55,7 @@ public class CompanyPanel_1 extends JPanel {
 		gbl_panel_2.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
 		panel_2.setLayout(gbl_panel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Company Name:");
+		JLabel lblNewLabel_3 = new JLabel("Hotel Name:");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
 		gbc_lblNewLabel_3.anchor = GridBagConstraints.EAST;
@@ -80,7 +80,7 @@ public class CompanyPanel_1 extends JPanel {
 		gbc_btnNewButton_2.gridx = 3;
 		gbc_btnNewButton_2.gridy = 2;
 		panel_2.add(btnNewButton_2, gbc_btnNewButton_2);
-		JLabel lblNewLabel_3_1 = new JLabel("Company Details:");
+		JLabel lblNewLabel_3_1 = new JLabel("Hotel Details:");
 		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		GridBagConstraints gbc_lblNewLabel_3_1 = new GridBagConstraints();
 		gbc_lblNewLabel_3_1.insets = new Insets(0, 0, 5, 5);
@@ -117,7 +117,7 @@ public class CompanyPanel_1 extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				Connection con;
 				try {
-						int result=JOptionPane.showConfirmDialog(null,"Are you sure you want to delete the company details?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+						int result=JOptionPane.showConfirmDialog(null,"Are you sure you want to delete the hotel details?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						if(result==JOptionPane.YES_OPTION)
 							{
 					con = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");				
@@ -125,7 +125,7 @@ public class CompanyPanel_1 extends JPanel {
 					PreparedStatement pst=con.prepareStatement(str);
 					pst.setString(1,String.valueOf(comboBox.getSelectedItem()));
 					pst.executeUpdate();
-					JOptionPane.showMessageDialog(null,"Company deleted!","Success",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Hotel deleted!","Success",JOptionPane.INFORMATION_MESSAGE);
 					con.close();
 					}
 				} catch (SQLException e1) {
@@ -174,7 +174,7 @@ public class CompanyPanel_1 extends JPanel {
 						pst.setString(1,textArea.getText());
 						pst.execute();
 
-						JOptionPane.showMessageDialog(null,"Company updated!","Success",JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null,"Hotel updated!","Success",JOptionPane.INFORMATION_MESSAGE);
 					}
 					dbc.close();
 				} catch (SQLException e) {

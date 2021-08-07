@@ -130,10 +130,10 @@ static String name;
 		panel_1.add(SalesOpt);
 		SalesOpt.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		JLabel lblNewLabel = new JLabel("SALES");
+		JLabel lblNewLabel = new JLabel("CUSTOMERS");
 		lblNewLabel.setForeground(Color.WHITE);
 		//lblNewLabel.setIcon(new ImageIcon(MainMenu.class.getResource("/MedOut/cvs-health-payor-solutions-measuring-success-main-image_0.png")));
-		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/cvs-health-payor-solutions-measuring-success-main-image_0.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/signup.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		SalesOpt.add(lblNewLabel);
@@ -143,7 +143,7 @@ static String name;
 		panel_1.add(InventoryOpt);
 		InventoryOpt.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel_1 = new JLabel("INVENTORY");
+		JLabel lblNewLabel_1 = new JLabel("PACKAGES");
 		//lblNewLabel_1.setIcon(new ImageIcon(MainMenu.class.getResource("/MedOut/6639703_preview.png")));
 		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/6639703_preview.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -156,7 +156,7 @@ static String name;
 		panel_1.add(CompanyOpt);
 		CompanyOpt.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel_2 = new JLabel("COMPANIES");
+		JLabel lblNewLabel_2 = new JLabel("HOTELS");
 		//lblNewLabel_2.setIcon(new ImageIcon(MainMenu.class.getResource("/MedOut/building-icon-company-building-png-png-256_256.png")));
 		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/building-icon-company-building-png-png-256_256.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);

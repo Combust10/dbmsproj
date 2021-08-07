@@ -37,14 +37,17 @@ import javax.swing.JTextField;
 
 public class CustomerPanel extends JPanel {
 	int total=0;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField Name;
+	private JTextField Phno;
+	private JTextField id;
+	private JTextField addr;
+	private JTextField age;
 	/**
 	 * Create the panel.
 	 */
+	
+	String nigga;
+	
 	public CustomerPanel() {
 		
 		setBackground(Color.WHITE);
@@ -126,32 +129,69 @@ public class CustomerPanel extends JPanel {
 		lblNewLabel_3_4.setBounds(31, 148, 71, 20);
 		panel_3.add(lblNewLabel_3_4);
 		
-		textField = new JTextField();
-		textField.setBounds(153, 26, 171, 19);
-		panel_3.add(textField);
-		textField.setColumns(10);
+		Name = new JTextField();
+		Name.setBounds(153, 26, 171, 19);
+		panel_3.add(Name);
+		Name.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(153, 53, 171, 19);
-		panel_3.add(textField_1);
+		Phno = new JTextField();
+		Phno.setColumns(10);
+		Phno.setBounds(153, 53, 171, 19);
+		panel_3.add(Phno);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(153, 83, 171, 19);
-		panel_3.add(textField_2);
+		id = new JTextField();
+		id.setColumns(10);
+		id.setBounds(153, 83, 171, 19);
+		panel_3.add(id);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(153, 115, 171, 19);
-		panel_3.add(textField_3);
+		addr = new JTextField();
+		addr.setColumns(10);
+		addr.setBounds(153, 115, 171, 19);
+		panel_3.add(addr);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(153, 144, 171, 19);
-		panel_3.add(textField_4);
+		age = new JTextField();
+		age.setColumns(10);
+		age.setBounds(153, 144, 171, 19);
+		panel_3.add(age);
+		
+		
+		
+		
+		
+		
+		
 		
 		JButton btnNewButton = new JButton("Add");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//Name text
+				try {
+					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
+					if(Name.getText().isEmpty()||Name.getText().isEmpty())
+					{
+						JOptionPane.showMessageDialog(null,"Please enter all the required details","Error",JOptionPane.ERROR_MESSAGE);
+					}
+					else {
+						String sql="INSERT INTO customers values(?,?,?,?,?,?)";
+						PreparedStatement pst=dbc.prepareStatement(sql);
+						pst.setString(1,nigga);
+						pst.setString(2,Name.getText());
+						pst.setString(3,Phno.getText());
+						pst.setString(4,id.getText());
+						pst.setString(5,addr.getText());
+						pst.setString(6,age.getText());
+						pst.execute();
+						JOptionPane.showMessageDialog(null,"New Customer added!","Success",JOptionPane.INFORMATION_MESSAGE);
+					}
+					dbc.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 		btnNewButton.setBounds(142, 189, 85, 21);
 		panel_3.add(btnNewButton);
 		
@@ -159,10 +199,43 @@ public class CustomerPanel extends JPanel {
 		lblNewLabel_4.setBounds(31, 10, 85, 13);
 		panel_3.add(lblNewLabel_4);
 		
-		JLabel lblNewLabel_5 = new JLabel("");
+		JLabel lblNewLabel_5 = new JLabel();
 		lblNewLabel_5.setBounds(151, 10, 45, 13);
 		panel_3.add(lblNewLabel_5);
 		//DefaultTableModel dtm=(DefaultTableModel)tm;
+		
+		
+		try {
+			Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
+			String SQL="SELECT * from customers";
+			PreparedStatement ps=dbc.prepareStatement(SQL);
+			ResultSet rs=ps.executeQuery();
+			
+			if(!rs.next())
+			{
+				lblNewLabel_5.setText("1");
+				nigga="1";
+			}
+			else
+			{
+				while(!rs.next())
+				{
+					int i=Integer.parseInt(rs.getString("no"))+1;
+					
+					lblNewLabel_5.setText(Integer.toString(i));
+					nigga=Integer.toString(i);
+					
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		
+		
+		
 
 		JScrollPane jsp=new JScrollPane();
 		lblNewLabel_1.addMouseListener(new MouseAdapter() {

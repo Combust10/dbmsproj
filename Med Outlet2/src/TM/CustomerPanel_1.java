@@ -24,6 +24,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class CustomerPanel_1 extends JPanel {
 	private JTextField textField;
@@ -56,6 +58,7 @@ public class CustomerPanel_1 extends JPanel {
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Go");
+		
 		btnNewButton.setBounds(253, 22, 85, 21);
 		panel1.add(btnNewButton);
 		
@@ -117,29 +120,51 @@ public class CustomerPanel_1 extends JPanel {
 		textField_5.setColumns(10);
 		textField_5.setBounds(197, 170, 171, 19);
 		panel.add(textField_5);
-		try {
-			Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
-			PreparedStatement prep=dbc.prepareStatement("SELECT * FROM login");
-			ResultSet r=prep.executeQuery();
-			while(r.next())
-			{
-				//unames.addItem(r.getString("username"));
+	
+	
+	
+	btnNewButton.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+			try {
+				Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
+				if(textField.getText().isEmpty()||textField.getText().isEmpty())
+				{
+					JOptionPane.showMessageDialog(null,"Please enter the customer no","Error",JOptionPane.ERROR_MESSAGE);
+				}
+				else {
+					String sql="select * from customers where no="+textField.getText();
+					PreparedStatement pst=dbc.prepareStatement(sql);
+					ResultSet r=pst.executeQuery();
+					
+					if(r.next())
+					{
+						textField_1.setText(r.getString("name"));
+						textField_2.setText(r.getString("phone"));
+						textField_3.setText(r.getString("id"));
+						textField_4.setText(r.getString("address"));
+						textField_5.setText(r.getString("age"));
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null,"Customer does not exist!","Error",JOptionPane.ERROR_MESSAGE);	
+					}
+					
+
+					pst.execute();
+					
+				}
+				dbc.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
-			dbc.close();
-			}catch(SQLException ex)
-		{
-				JOptionPane.showMessageDialog(null,"SQL Error connecting to database","Error",JOptionPane.ERROR_MESSAGE);		
+			
+			
+			
 		}
-		Connection dbc;
-		try {
-			dbc = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
-		
-		PreparedStatement pst=dbc.prepareStatement("SELECT User,Product,Price,Quantity,Date FROM sales");
-		ResultSet r=pst.executeQuery();
-		dbc.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	});
+	
 	}
 }

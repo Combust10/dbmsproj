@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 import java.sql.Connection;
 	import java.sql.DriverManager;
 	import java.sql.PreparedStatement;
@@ -18,7 +18,7 @@ public class SQLite {
 			initialise();
 		}
 		static void initialise() throws SQLException {
-				con=DriverManager.getConnection("jdbc:sqlite::MedOut/Database.db");
+				con=DriverManager.getConnection("jdbc:sqlite::TM/Database.db");
 				Statement state=con.createStatement();
 				state.execute("CREATE TABLE IF NOT EXISTS login(id integer,"+"username varchar(60),"+"password varchar(60),"+"sq varchar(100),"+"ans varchar(60));");
 				state.execute("CREATE TABLE IF NOT EXISTS stock(id integer,"+"Product varchar(60),"+"Quantity integer,"+"Price integer);");

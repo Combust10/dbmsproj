@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -56,14 +56,14 @@ static String name;
 	 */
 
 	public MainMenu() {
-		setTitle("Medical Outlet Management System");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MainMenu.class.getResource("/MedOut/drug_shop-512.png")));
+		setTitle("Travel Management System");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MainMenu.class.getResource("/TM/travel1.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 696, 458);
 		Connection dbc;
 		
 		try {
-			dbc = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+			dbc = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 			PreparedStatement prep=dbc.prepareStatement("SELECT fs FROM settings");
 			ResultSet res=prep.executeQuery();
 			while(res.next())
@@ -103,12 +103,19 @@ static String name;
 		Medlogo.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(Medlogo);
 		Medlogo.setBounds(0,0,200,200);
-		//Medlogo.setIcon(new ImageIcon(MainMenu.class.getResource("/MedOut/drug_shop-512.png")));
-		Medlogo.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/drug_shop-512.png")).getImage().getScaledInstance(120,120, Image.SCALE_SMOOTH)));
+		//Medlogo.setIcon(new ImageIcon(MainMenu.class.getResource("/TM/drug_shop-512.png")));
+		Medlogo.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/travel1.png")).getImage().getScaledInstance(120,120, Image.SCALE_SMOOTH)));
 		
 		JLabel lblNewLabel_6 = new JLabel("Logged in as:"+name);
 		lblNewLabel_6.setVerticalAlignment(SwingConstants.BOTTOM);
 		panel.add(lblNewLabel_6, BorderLayout.EAST);
+		
+		JLabel lblNewLabel_8 = new JLabel();
+		lblNewLabel_8.setText("<html>"+ "TRAVEL MANAGEMENT SYSTEM" +"</html>");
+		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 36));
+		lblNewLabel_8.setForeground(Color.RED);
+		panel.add(lblNewLabel_8, BorderLayout.CENTER);
 		JPanel panel1=new JPanel();
 		panel1.setBackground(Color.RED);
 		panel1.setBorder(null);
@@ -132,8 +139,8 @@ static String name;
 		
 		JLabel lblNewLabel = new JLabel("CUSTOMERS");
 		lblNewLabel.setForeground(Color.WHITE);
-		//lblNewLabel.setIcon(new ImageIcon(MainMenu.class.getResource("/MedOut/cvs-health-payor-solutions-measuring-success-main-image_0.png")));
-		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/signup.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		//lblNewLabel.setIcon(new ImageIcon(MainMenu.class.getResource("/TM/cvs-health-payor-solutions-measuring-success-main-image_0.png")));
+		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/signup.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		SalesOpt.add(lblNewLabel);
@@ -144,8 +151,8 @@ static String name;
 		InventoryOpt.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel lblNewLabel_1 = new JLabel("PACKAGES");
-		//lblNewLabel_1.setIcon(new ImageIcon(MainMenu.class.getResource("/MedOut/6639703_preview.png")));
-		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/6639703_preview.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		//lblNewLabel_1.setIcon(new ImageIcon(MainMenu.class.getResource("/TM/6639703_preview.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/6639703_preview.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 20));
@@ -157,8 +164,8 @@ static String name;
 		CompanyOpt.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel lblNewLabel_2 = new JLabel("HOTELS");
-		//lblNewLabel_2.setIcon(new ImageIcon(MainMenu.class.getResource("/MedOut/building-icon-company-building-png-png-256_256.png")));
-		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/building-icon-company-building-png-png-256_256.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		//lblNewLabel_2.setIcon(new ImageIcon(MainMenu.class.getResource("/TM/building-icon-company-building-png-png-256_256.png")));
+		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/building-icon-company-building-png-png-256_256.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Arial", Font.BOLD, 20));
@@ -170,8 +177,8 @@ static String name;
 		UsersOpt.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel lblNewLabel_3 = new JLabel("USERS");
-		//lblNewLabel_3.setIcon(new ImageIcon(MainMenu.class.getResource("/MedOut/multy-user.png")));
-		lblNewLabel_3.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/multy-user.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		//lblNewLabel_3.setIcon(new ImageIcon(MainMenu.class.getResource("/TM/multy-user.png")));
+		lblNewLabel_3.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/multy-user.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setForeground(Color.WHITE);
 		lblNewLabel_3.setFont(new Font("Arial", Font.BOLD, 20));
@@ -183,8 +190,8 @@ static String name;
 		SettingsOpt.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel lblNewLabel_4 = new JLabel("SETTINGS");
-		//lblNewLabel_4.setIcon(new ImageIcon(MainMenu.class.getResource("/MedOut/settings.png")));
-		lblNewLabel_4.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/settings.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		//lblNewLabel_4.setIcon(new ImageIcon(MainMenu.class.getResource("/TM/settings.png")));
+		lblNewLabel_4.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/settings.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setForeground(Color.WHITE);
 		lblNewLabel_4.setFont(new Font("Arial", Font.BOLD, 20));
@@ -196,8 +203,8 @@ static String name;
 		Logout.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JLabel lblNewLabel_5 = new JLabel("LOGOUT");
-		//lblNewLabel_5.setIcon(new ImageIcon(MainMenu.class.getResource("/MedOut/25706.png")));
-		lblNewLabel_5.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/25706.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		//lblNewLabel_5.setIcon(new ImageIcon(MainMenu.class.getResource("/TM/25706.png")));
+		lblNewLabel_5.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/25706.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5.setForeground(Color.WHITE);
 		lblNewLabel_5.setFont(new Font("Arial", Font.BOLD, 20));
@@ -208,9 +215,9 @@ static String name;
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNewLabel_7.setForeground(Color.WHITE);
 		contentPane.add(lblNewLabel_7, BorderLayout.CENTER);
-		InventoryPanel ip=new InventoryPanel();
-		CompanyPanel cp=new CompanyPanel();
-		SalesPanel sp=new SalesPanel();
+		PackagePanel ip=new PackagePanel();
+		HotelPanel cp=new HotelPanel();
+		CustomerPanel sp=new CustomerPanel();
 		UsersPanel up=new UsersPanel();
 		Settings s=new Settings();
 		if(!(name.equals("admin")))

@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
@@ -52,7 +52,7 @@ public class UsersPanel extends JPanel {
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblUsers = new JLabel("USERS");
-		lblUsers.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/multy-user.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		lblUsers.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/multy-user.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblUsers.setVerticalAlignment(SwingConstants.TOP);
 		lblUsers.setForeground(Color.RED);
 		lblUsers.setFont(new Font("Arial", Font.BOLD, 30));
@@ -69,13 +69,13 @@ public class UsersPanel extends JPanel {
 		
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBackground(Color.PINK);
-		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/unnamed.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/unnamed.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblNewLabel_1.setBounds(0, 0, 102, 40);
 		panel_1.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("EDIT");
 		lblNewLabel_2.setOpaque(true);
-		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/Edit_icon_(the_Noun_Project_30184).png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/Edit_icon_(the_Noun_Project_30184).png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBackground(Color.PINK);
 		lblNewLabel_2.setBounds(102, 0, 120, 40);
@@ -184,7 +184,7 @@ public class UsersPanel extends JPanel {
 				}
 
 				try {
-					Connection con=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+					Connection con=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 					String query="SELECT username FROM login WHERE username=?";
 					PreparedStatement pst=con.prepareStatement(query);
 					pst.setString(1,textField.getText());
@@ -203,7 +203,7 @@ public class UsersPanel extends JPanel {
 				{
 					try {
 						String password = String.valueOf(passwordField.getPassword());
-						Connection con=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+						Connection con=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 						String query="INSERT INTO login values(?,?,?,?,?);";
 						PreparedStatement pst=con.prepareStatement(query);
 						pst.setString(2,textField.getText());	
@@ -245,7 +245,7 @@ public class UsersPanel extends JPanel {
 				add(panel_3,BorderLayout.CENTER);
 				try {
 					unames.removeAllItems();
-					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 					PreparedStatement prep=dbc.prepareStatement("SELECT * FROM login");
 					ResultSet r=prep.executeQuery();
 					while(r.next())
@@ -284,7 +284,7 @@ public class UsersPanel extends JPanel {
 						int result=JOptionPane.showConfirmDialog(null,"Are you sure you want to delete the user?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						if(result==JOptionPane.YES_OPTION)
 							{
-					con = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");				
+					con = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");				
 					String str="DELETE FROM login WHERE username=?";
 					PreparedStatement pst=con.prepareStatement(str);
 
@@ -313,7 +313,7 @@ public class UsersPanel extends JPanel {
 						int result=JOptionPane.showConfirmDialog(null,"Are you sure you want to change the password?","Are you sure",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						if(result==JOptionPane.YES_OPTION)
 							{
-					con = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");				
+					con = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");				
 					String str="UPDATE login SET password=? WHERE username=?";
 					PreparedStatement pst=con.prepareStatement(str);
 					pst.setString(1,adminpass.getText());

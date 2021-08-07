@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -25,7 +25,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class SalesPanel_1 extends JPanel {
+public class CustomerPanel_1 extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -36,7 +36,7 @@ public class SalesPanel_1 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public SalesPanel_1() {
+	public CustomerPanel_1() {
 		setBackground(Color.WHITE);
 		setLayout(new BorderLayout(0, 0));
 		JPanel panel1=new JPanel();
@@ -118,7 +118,7 @@ public class SalesPanel_1 extends JPanel {
 		textField_5.setBounds(197, 170, 171, 19);
 		panel.add(textField_5);
 		try {
-			Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+			Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 			PreparedStatement prep=dbc.prepareStatement("SELECT * FROM login");
 			ResultSet r=prep.executeQuery();
 			while(r.next())
@@ -132,7 +132,7 @@ public class SalesPanel_1 extends JPanel {
 		}
 		Connection dbc;
 		try {
-			dbc = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+			dbc = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 		
 		PreparedStatement pst=dbc.prepareStatement("SELECT User,Product,Price,Quantity,Date FROM sales");
 		ResultSet r=pst.executeQuery();

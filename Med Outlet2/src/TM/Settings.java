@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -32,7 +32,7 @@ public class Settings extends JPanel {
 	public void clearDatabase(String TABLE_NAME) {  
 		   Connection dbc;
 		try {
-			dbc = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+			dbc = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 		
 		   String clearDBQuery = "DELETE FROM "+TABLE_NAME;  
 		   PreparedStatement prep=dbc.prepareStatement(clearDBQuery);
@@ -53,7 +53,7 @@ public class Settings extends JPanel {
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblNewLabel = new JLabel("SETTINGS");
-		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/settings.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
+		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/settings.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
 		panel.add(lblNewLabel,BorderLayout.WEST);
@@ -122,7 +122,7 @@ public class Settings extends JPanel {
 		panel_1.add(btnNewButton_1);
 		Connection dbc;
 		try {
-			dbc = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+			dbc = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 		
 		PreparedStatement prep=dbc.prepareStatement("SELECT fs,name,line1,line2 FROM settings");
 		ResultSet res=prep.executeQuery();
@@ -146,7 +146,7 @@ public class Settings extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				Connection dbc;
 				try {
-				dbc = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+				dbc = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 				PreparedStatement prep=dbc.prepareStatement("UPDATE settings SET fs=?");
 				if(chckbxNewCheckBox.isSelected())
 				{prep.setInt(1, 1);

@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 import java.awt.BorderLayout;
 import java.sql.*;
 import java.awt.EventQueue;
@@ -65,9 +65,9 @@ public class Login extends JFrame {
 		setTitle("Login");
 	//SQLite.getConnection();
 		String name=null;
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/MedOut/check.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/TM/check.png")));
 		setForeground(Color.WHITE);
-		logcon=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+		logcon=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 360);
@@ -101,7 +101,7 @@ public class Login extends JFrame {
 		panel.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel = new JLabel("Login");
-		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/MedOut/check.png")));
+		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/TM/check.png")));
 		lblNewLabel.setBounds(243, 24, 124, 36);
 		panel.add(lblNewLabel);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -128,7 +128,7 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("Enter");
 		btnNewButton.setBounds(248, 244, 113, 33);
 		panel.add(btnNewButton);
-		lblNewLabel_3.setIcon(new ImageIcon(Login.class.getResource("/MedOut/3d-perspective-style-diamond-shape-white-background_1017-27557.jpg")));
+		lblNewLabel_3.setIcon(new ImageIcon(Login.class.getResource("/TM/3d-perspective-style-diamond-shape-white-background_1017-27557.jpg")));
 		lblNewLabel_3.setBounds(0, -65, 610, 426);
 		panel.add(lblNewLabel_3);
 		btnNewButton.addActionListener(new ActionListener() {

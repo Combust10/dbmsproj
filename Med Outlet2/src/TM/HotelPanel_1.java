@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 
 import javax.swing.JPanel;
 
@@ -26,12 +26,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class CompanyPanel_1 extends JPanel {
+public class HotelPanel_1 extends JPanel {
 		/*JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.removeAllItems();
 		Connection dbc;
 		try {
-			dbc = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");		
+			dbc = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");		
 		PreparedStatement prep=dbc.prepareStatement("SELECT * FROM company");
 		ResultSet r=prep.executeQuery();
 		while(r.next())
@@ -43,7 +43,7 @@ public class CompanyPanel_1 extends JPanel {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(null,"SQL Error connecting to database","Error",JOptionPane.ERROR_MESSAGE);		
 		}*/
-	public CompanyPanel_1() {
+	public HotelPanel_1() {
 		setLayout(new BorderLayout(0,0));
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.WHITE);
@@ -120,7 +120,7 @@ public class CompanyPanel_1 extends JPanel {
 						int result=JOptionPane.showConfirmDialog(null,"Are you sure you want to delete the hotel details?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 						if(result==JOptionPane.YES_OPTION)
 							{
-					con = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");				
+					con = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");				
 					String str="DELETE FROM company WHERE compname=?";
 					PreparedStatement pst=con.prepareStatement(str);
 					pst.setString(1,String.valueOf(comboBox.getSelectedItem()));
@@ -144,7 +144,7 @@ public class CompanyPanel_1 extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				Connection dbc;
 				try {
-					dbc = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+					dbc = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 				
 				PreparedStatement prep=dbc.prepareStatement("SELECT * FROM company WHERE compname=?");
 				prep.setString(1,String.valueOf(comboBox.getSelectedItem()));
@@ -162,7 +162,7 @@ public class CompanyPanel_1 extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				try {
-					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 					if(textArea.getText().isEmpty())
 					{
 						JOptionPane.showMessageDialog(null,"Please enter all the required details","Error",JOptionPane.ERROR_MESSAGE);
@@ -190,7 +190,7 @@ public class CompanyPanel_1 extends JPanel {
 				comboBox.removeAllItems();
 				Connection dbc;
 				try {
-					dbc = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");		
+					dbc = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");		
 				PreparedStatement prep=dbc.prepareStatement("SELECT * FROM company");
 				ResultSet r=prep.executeQuery();
 				while(r.next())

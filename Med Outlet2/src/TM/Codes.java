@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -41,7 +41,7 @@ public class Codes extends JFrame {
 	 * Create the frame.
 	 */
 	public Codes() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Codes.class.getResource("/MedOut/check.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Codes.class.getResource("/TM/check.png")));
 		setTitle("Alternative admin passwords");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

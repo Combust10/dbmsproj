@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -35,7 +35,7 @@ import javax.swing.JScrollPane;
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
 
-public class SalesPanel extends JPanel {
+public class CustomerPanel extends JPanel {
 	int total=0;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -45,7 +45,7 @@ public class SalesPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public SalesPanel() {
+	public CustomerPanel() {
 		
 		setBackground(Color.WHITE);
 		setLayout(new BorderLayout(0, 0));
@@ -57,7 +57,7 @@ public class SalesPanel extends JPanel {
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblNewLabel = new JLabel("CUSTOMERS");
-		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/signup.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
+		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/signup.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
 		panel.add(lblNewLabel,BorderLayout.WEST);
@@ -73,7 +73,7 @@ public class SalesPanel extends JPanel {
 		lblNewLabel_1.setBounds(0, 0, 102, 40);
 		lblNewLabel_1.setOpaque(true);
 		lblNewLabel_1.setBackground(Color.PINK);
-		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/unnamed.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/unnamed.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		panel_1.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Display");
@@ -81,8 +81,8 @@ public class SalesPanel extends JPanel {
 		lblNewLabel_2.setBounds(102, 0, 120, 40);
 		lblNewLabel_2.setBackground(Color.PINK);
 		lblNewLabel_2.setOpaque(true);
-		//lblNewLabel_2.setIcon(new ImageIcon(InventoryPanel.class.getResource("/MedOut/Edit_icon_(the_Noun_Project_30184).png")));
-		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/Edit_icon_(the_Noun_Project_30184).png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		//lblNewLabel_2.setIcon(new ImageIcon(PackagePanel.class.getResource("/TM/Edit_icon_(the_Noun_Project_30184).png")));
+		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/Edit_icon_(the_Noun_Project_30184).png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		panel_1.add(lblNewLabel_2);
 		
 		JPanel disp = new JPanel();
@@ -187,7 +187,7 @@ public class SalesPanel extends JPanel {
 				add(disp,BorderLayout.CENTER);
 				panel_2.setVisible(false);
 				disp.setVisible(true);
-				SalesPanel_1 ip=new SalesPanel_1();
+				CustomerPanel_1 ip=new CustomerPanel_1();
 				jsp.setViewportView(ip);
 				disp.add(jsp,BorderLayout.CENTER);
 			}

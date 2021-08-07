@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -50,7 +50,7 @@ public class LoginReset extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginReset() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginReset.class.getResource("/MedOut/check.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginReset.class.getResource("/TM/check.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 517, 300);
 		setResizable(false);
@@ -125,7 +125,7 @@ public class LoginReset extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				Connection dbc;
 				try {
-					dbc = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+					dbc = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 					String sql="SELECT username FROM login WHERE username=?";
 					PreparedStatement pst=dbc.prepareStatement(sql);
 					pst.setString(1,textField.getText());
@@ -162,7 +162,7 @@ public class LoginReset extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					int flag=1;
-					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 
 
 					String sql="SELECT * from login WHERE username=? and ans=?";

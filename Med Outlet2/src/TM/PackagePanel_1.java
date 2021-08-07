@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -32,12 +32,12 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class InventoryPanel_1 extends JPanel {
+public class PackagePanel_1 extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public InventoryPanel_1() {
+	public PackagePanel_1() {
 		setBackground(Color.WHITE);
 		setLayout(new BorderLayout(0, 0));
 		

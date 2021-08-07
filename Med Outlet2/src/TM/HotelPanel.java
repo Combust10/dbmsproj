@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -34,14 +34,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class CompanyPanel extends JPanel {
+public class HotelPanel extends JPanel {
 	private JTextField textField;
 
 
 	/**
 	 * Create the panel.
 	 */
-	public CompanyPanel() {
+	public HotelPanel() {
 		setBackground(Color.WHITE);
 		setLayout(new BorderLayout(0, 0));
 		
@@ -52,7 +52,7 @@ public class CompanyPanel extends JPanel {
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblNewLabel = new JLabel("HOTELS");
-		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/building-icon-company-building-png-png-256_256.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
+		lblNewLabel.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/building-icon-company-building-png-png-256_256.png")).getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH)));
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
 		panel.add(lblNewLabel,BorderLayout.WEST);
@@ -68,7 +68,7 @@ public class CompanyPanel extends JPanel {
 		lblNewLabel_1.setBounds(0, 0, 102, 40);
 		lblNewLabel_1.setOpaque(true);
 		lblNewLabel_1.setBackground(Color.PINK);
-		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/unnamed.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		lblNewLabel_1.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/unnamed.png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		panel_1.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Display");
@@ -76,8 +76,8 @@ public class CompanyPanel extends JPanel {
 		lblNewLabel_2.setBounds(102, 0, 120, 40);
 		lblNewLabel_2.setBackground(Color.PINK);
 		lblNewLabel_2.setOpaque(true);
-		//lblNewLabel_2.setIcon(new ImageIcon(InventoryPanel.class.getResource("/MedOut/Edit_icon_(the_Noun_Project_30184).png")));
-		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/MedOut/Edit_icon_(the_Noun_Project_30184).png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+		//lblNewLabel_2.setIcon(new ImageIcon(PackagePanel.class.getResource("/TM/Edit_icon_(the_Noun_Project_30184).png")));
+		lblNewLabel_2.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/TM/Edit_icon_(the_Noun_Project_30184).png")).getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
 		panel_1.add(lblNewLabel_2);
 		
 		JPanel panel_2 = new JPanel();
@@ -176,7 +176,7 @@ public class CompanyPanel extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				add(panel_3,BorderLayout.CENTER);
 				panel_2.setVisible(false);
-				CompanyPanel_1 cp1=new CompanyPanel_1();
+				HotelPanel_1 cp1=new HotelPanel_1();
 				panel_3.setVisible(true);
 				panel_3.add(cp1,BorderLayout.CENTER);
 			}
@@ -193,7 +193,7 @@ public class CompanyPanel extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+					Connection dbc=DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 					if(textField.getText().isEmpty()||txtrRepresentativeNameTelephone.getText().isEmpty())
 					{
 						JOptionPane.showMessageDialog(null,"Please enter all the required details","Error",JOptionPane.ERROR_MESSAGE);

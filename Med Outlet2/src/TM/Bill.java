@@ -1,4 +1,4 @@
-package MedOut;
+package TM;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -29,8 +29,8 @@ public class Bill {
 		try {
 		Document document=new Document();
 		PdfWriter.getInstance(document, new FileOutputStream("Bill.pdf"));
-		//Image img = Image.getInstance("src/MedOut/drug_shop-512.png");
-		Image img = Image.getInstance(ClassLoader.getSystemResource("MedOut/drug_shop-512.png"));
+		//Image img = Image.getInstance("src/TM/drug_shop-512.png");
+		Image img = Image.getInstance(ClassLoader.getSystemResource("TM/drug_shop-512.png"));
 		document.open();
 		img.scaleAbsolute(80, 80);
 		img.setAlignment(Image.MIDDLE);
@@ -38,7 +38,7 @@ public class Bill {
 		String name="Example Medical Outlet";
 		String add1="6/3, Shree Apartment Krishna Road Cross Basavanagudi";
 		String add2="Bangaluru, Karnataka 560004";
-		Connection dbc = DriverManager.getConnection("jdbc:sqlite::resource:MedOut/Database.db");
+		Connection dbc = DriverManager.getConnection("jdbc:sqlite::resource:TM/Database.db");
 		PreparedStatement prep=dbc.prepareStatement("SELECT name,line1,line2 FROM settings");
 		ResultSet rs=prep.executeQuery();
 		while(rs.next())
